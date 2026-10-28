@@ -1,0 +1,27 @@
+services:
+  mwds-sidecar:
+    image: ghcr.io/martinezaye/mwds-warcon-sidecar:0.1.0
+    restart: unless-stopped
+    env_file: mwds-sidecar.env
+    environment:
+      WARCON_URL: http://warcon:3000
+    volumes:
+      - mwds-sidecar-data:/data
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    pids_limit: 64
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    depends_on:
+      warcon:
+        condition: service_started
+
+volumes:
+  mwds-sidecar-data:

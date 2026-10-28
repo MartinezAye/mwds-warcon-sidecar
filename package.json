@@ -1,0 +1,38 @@
+{
+  "name": "mwds-warcon-sidecar",
+  "version": "0.1.0",
+  "description": "Reads a self-hosted Warcon live view and posts MyWardogsStats samples.",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinezAye/mwds-warcon-sidecar.git"
+  },
+  "homepage": "https://github.com/MartinezAye/mwds-warcon-sidecar#readme",
+  "bugs": {
+    "url": "https://github.com/MartinezAye/mwds-warcon-sidecar/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "pino": "10.4.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@types/node": "24.19.2",
+    "eslint": "9.39.5",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
+    "vitest": "5.0.5"
+  }
+}
